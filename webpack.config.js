@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // 1° Babel transpila o JSX para JS normal, 2° Webpack faz o bundle dos arquivos JS para um só.
 module.exports = {
+  mode: 'development',
   entry: path.resolve(__dirname, 'src', 'index.js'),
   output: {
     path: path.resolve(__dirname, 'build'),
