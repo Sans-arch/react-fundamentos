@@ -5,7 +5,8 @@
   "author": "Santiago Fleitas <sansfleitas@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "dev": "webpack serve"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -15,7 +16,8 @@
     "clean-webpack-plugin": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
     "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1"
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
     "react": "^17.0.2",
