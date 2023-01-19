@@ -1,15 +1,15 @@
 import React from "react";
 
+import Header from "./Header";
 import Post from "./Post";
-
-const tituloZeroum = 'Título Zero UM';
 
 // Props -> Properties
 function App() {
   return (
     <>
-      <h1 id="idDoTitulo">JStack's Blog</h1>
-      <h2>Posts da semana</h2>
+      <Header title="JStack's Blog">
+        <h2>Posts da semana</h2>
+      </Header>
 
       <hr />
 
