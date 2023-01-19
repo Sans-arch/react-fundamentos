@@ -3,25 +3,28 @@ import PropTypes from 'prop-types';
 
 import PostHeader from './PostHeader';
 
+import styles from './Post.scss';
+
 export default function Post(props) {
   return (
-    <>
-      <article>
-        <PostHeader
-          onRemove={props.onRemove}
-          post={{
-            id: props.post.id,
-            title: props.post.title,
-            read: props.post.read,
-          }}
-        />
-        <br />
-        <small>{props.post.subtitle}</small>
-        <br />
-        Media: {props.post.likes / 2}
-      </article>
+    <article
+      className={
+        props.post.removed ? styles.postDeleted : styles.post
+      }
+    >
+      <PostHeader
+        onRemove={props.onRemove}
+        post={{
+          id: props.post.id,
+          title: props.post.title,
+          read: props.post.read,
+        }}
+      />
       <br />
-    </>
+      <small>{props.post.subtitle}</small>
+      <br />
+      Media: {props.post.likes / 2}
+    </article>
   );
 }
 
@@ -32,6 +35,7 @@ Post.propTypes = {
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
     likes: PropTypes.number.isRequired,
-    read: PropTypes.bool.isRequired
+    read: PropTypes.bool.isRequired,
+    removed: PropTypes.bool.isRequired
   }).isRequired,
 };

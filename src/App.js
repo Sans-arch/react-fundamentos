@@ -10,10 +10,10 @@ import { ThemeProvider } from './ThemeContext';
 // Props -> Properties
 function App() {
   const [posts, setPosts] = useState([
-    { id: Math.random(), title: 'Title#01', subtitle: 'Sub#01', likes: 20, read: false },
-    { id: Math.random(), title: 'Title#02', subtitle: 'Sub#02', likes: 10, read: true },
-    { id: Math.random(), title: 'Title#03', subtitle: 'Sub#03', likes: 50, read: false },
-    { id: Math.random(), title: 'Title#04', subtitle: 'Sub#03', likes: 50, read: true },
+    { id: Math.random(), title: 'Title#01', subtitle: 'Sub#01', likes: 20, read: false, removed: false },
+    { id: Math.random(), title: 'Title#02', subtitle: 'Sub#02', likes: 10, read: true, removed: false },
+    { id: Math.random(), title: 'Title#03', subtitle: 'Sub#03', likes: 50, read: false, removed: false },
+    { id: Math.random(), title: 'Title#04', subtitle: 'Sub#03', likes: 50, read: true, removed: false },
   ]);
 
   function handleRefresh(e) {
@@ -27,7 +27,9 @@ function App() {
   }
 
   function handleRemovePost(postId) {
-    setPosts(prevState => prevState.filter(post => post.id !== postId));
+    setPosts(prevState => (
+      prevState.map(post => post.id === postId ? { ...post, removed: !post.removed } : post)
+    ));
   }
 
   return (
