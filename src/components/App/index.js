@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 
-import Header from "./Header";
-import Post from "./Post";
+import Header from "../Header";
+import Post from "../Post";
+import { ThemeProvider } from '../../context/ThemeContext';
 
 import styles from './App.scss';
-
-import { ThemeProvider } from './ThemeContext';
 
 // Props -> Properties
 function App() {
