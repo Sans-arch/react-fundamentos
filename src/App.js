@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import Header from "./Header";
 import Post from "./Post";
 
+import { ThemeProvider } from './ThemeContext';
+
 // Props -> Properties
-// Quando o state muda, a function App() é carregada inteira novamente e
-// consequentemente a tela é re-renderizada com os novos valores do state
 function App() {
   const [posts, setPosts] = useState([
     { id: Math.random(), title: 'Title#01', subtitle: 'Sub#01', likes: 20, read: false },
@@ -29,8 +29,8 @@ function App() {
   }
 
   return (
-    <>
-      <Header title="JStack's Blog">
+    <ThemeProvider>
+      <Header>
         <h2>
           Posts da semana
           <button onClick={handleRefresh}>Atualizar</button>
@@ -46,7 +46,7 @@ function App() {
           post={post}
         />
       ))}
-    </>
+    </ThemeProvider>
   );
 }
 
