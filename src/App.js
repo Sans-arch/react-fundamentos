@@ -19,7 +19,8 @@ function App() {
       id: Math.random(),
       title: `Title#0${posts.length + 1}`,
       subtitle: `Sub#0${posts.length + 1}`,
-      likes: 50
+      likes: 50,
+      read: false
     }]);
   }
 
