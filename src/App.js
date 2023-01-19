@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Header from "./Header";
 import Post from "./Post";
 
-import styles from './App.css';
+import styles from './App.scss';
 
 import { ThemeProvider } from './ThemeContext';
 

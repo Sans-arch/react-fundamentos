@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Button from './Button';
 
-import styles from './Header.css';
+import styles from './Header.scss';
 
 import { ThemeContext } from './ThemeContext';
 
