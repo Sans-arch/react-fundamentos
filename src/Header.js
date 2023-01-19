@@ -9,13 +9,7 @@ export default function Header(props) {
   const { onToggleTheme } = useContext(ThemeContext);
 
   return (
-    <div
-      style={{
-        background: '#ccc',
-        fontFamily: 'sans-serif',
-        marginBottom: '24rem',
-      }}
-    >
+    <div>
       <h1>{props.title}</h1>
       <Button onClick={onToggleTheme}>
         Mudar tema
