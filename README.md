@@ -1,10 +1,12 @@
 # Fundamentos do React
 
 Projeto prático no qual utilizo:
+
 - React
   - Context API
   - useState
   - useMemo
+  - useEffect
 - ReactDOM
 - Styled Components
   - Aplicando theming (aplicando temas em toda a aplicação)
