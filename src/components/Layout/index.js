@@ -7,9 +7,15 @@ import Footer from '../Footer';
 export default function Layout(props) {
   return (
     <>
-      <Header onToggleTheme={props.onToggleTheme} theme={props.selectedTheme} />
+      <Header
+        onToggleTheme={props.onToggleTheme}
+        selectedTheme={props.selectedTheme}
+      />
       <PostsList />
-      <Footer onToggleTheme={props.onToggleTheme} theme={props.selectedTheme} />
+      <Footer
+        onToggleTheme={props.onToggleTheme}
+        selectedTheme={props.selectedTheme}
+      />
     </>
   );
 }
