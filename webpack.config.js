@@ -1,20 +1,19 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin =  require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
-// 1° Babel transpila o JSX para JS normal, 2° Webpack faz o bundle dos arquivos JS para um só.
 module.exports = {
   mode: 'development',
   entry: path.resolve(__dirname, 'src', 'index.js'),
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle[hash].js'
-  },
+    filename: 'bundle[hash].js',
+  }, 
   plugins: [
-    new HtmlWebpackPlugin({
+    new HtmlWebpackPlugin ({
       template: path.resolve(__dirname, 'public', 'index.html'),
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
   ],
   module: {
     rules: [
@@ -25,19 +24,19 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
         use: [
-          'style-loader',
+          'style-loader', 
           {
             loader: 'css-loader',
             options: {
               modules: true,
-            }
+            },
           },
-          'sass-loader'
+          'sass-loader',
         ],
       },
     ],
+    
   },
   devServer: {
     port: 3000,

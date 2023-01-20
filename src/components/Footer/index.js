@@ -4,12 +4,12 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 
 import { Container } from './styles';
 
-export default function Header() {
+export default function Footer() {
   const { currentTheme, handleToggleTheme } = useContext(ThemeContext);
 
   return (
     <Container>
-      <h1>JStack's Blog</h1>
+      <span>JStack's Blog. Todos os direitos reservados.</span>
       <button
         type="button"
         onClick={handleToggleTheme}
