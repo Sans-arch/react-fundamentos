@@ -10,7 +10,7 @@ export const Container = styled.header`
   justify-content: space-between;
 
   button {
-    font-size: 16px;
+    font-size: ${({ theme }) => theme.spacing.medium};
     cursor: pointer;
     cursor: pointer;
     background: transparent;
