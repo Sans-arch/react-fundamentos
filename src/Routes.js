@@ -1,8 +1,9 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Posts from './pages/Posts';
+import NotFound from './pages/NotFound';
 
 // Rotas são componentes
 /*
@@ -14,12 +15,16 @@ import Posts from './pages/Posts';
   Por padrão, o dev-server do Webpack ele cria um servidor Node e trata as rotas como requisições HTTP, no nosso caso
   queremos que ele pegue as rotas com erro de 404 e que ele redirecione para o arquivo index.html, onde o JavaScript irá
   controlar a navegação do usuário pela History API.
+
+  Com o <Switch /> só será renderizada 1 ÚNICA rota por vez, se nenhuma rota bater com a path fornecido, ele renderiza
+  a ultima rota (geralmente a 404 - Not Found).
 */
 export default function Routes() {
   return (
-    <>
+    <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/posts" component={Posts} />
-    </>
+      <Route path="/posts" component={Posts} />
+      <Route component={NotFound} />
+    </Switch>
   );
 }
