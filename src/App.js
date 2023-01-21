@@ -52,6 +52,16 @@ class App extends Component {
       theme: 'dark',
       oiTudoBem: true
     };
+
+    this.handleToggleTheme = this.handleToggleTheme.bind(this);
+  }
+
+  // se não fizermos nada, por padrão o `this` aponta para o objeto da própria função
+  // e não referencia a instância em si
+  handleToggleTheme() {
+    this.setState(prevState => ({
+      theme: prevState.theme === 'dark' ? 'light' : 'dark'
+    }));
   }
 
   render() {
@@ -61,11 +71,7 @@ class App extends Component {
       <ThemeProvider theme={themes[theme] || themes.dark}>
         <GlobalStyle />
         <Layout
-          onToggleTheme={() => {
-            this.setState(prevState => ({
-              theme: prevState.theme === 'dark' ? 'light' : 'dark'
-            }));
-          }}
+          onToggleTheme={this.handleToggleTheme}
           selectedTheme={theme}
         />
       </ThemeProvider>
