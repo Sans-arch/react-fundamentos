@@ -10,55 +10,55 @@ import themes from './styles/themes';
 // para criarmos estados temos 2 formas de criar os estados:
 /*
   1° - Criar state no construtor (é a mais simples)
-  O método construtor das classes é o método que será executado assim que as
-  classes forem instanciadas!
-  O método construtor das nossas classes no React recebem as props como argumento,
-  tendo todas as props disponíveis num objeto.
-  Uma boa prática que o React pede, é que enviemos as props recebidos pela nossa classe
-  para o construtor (super) do React.Component também.
-  Enfim, para criar o state, basta criar uma propriedade chamada `state` dentro da
-  instância, ou seja, this.state = {}, recebendo um objeto, dentro desse objeto
-  passaremos todos os estados que queremos que o componete possua.
-  Ex:
-  constructor(props) {
-    super(props);
+    O método construtor das classes é o método que será executado assim que as
+    classes forem instanciadas!
+    O método construtor das nossas classes no React recebem as props como argumento,
+    tendo todas as props disponíveis num objeto.
+    Uma boa prática que o React pede, é que enviemos as props recebidos pela nossa classe
+    para o construtor (super) do React.Component também.
+    Enfim, para criar o state, basta criar uma propriedade chamada `state` dentro da
+    instância, ou seja, this.state = {}, recebendo um objeto, dentro desse objeto
+    passaremos todos os estados que queremos que o componete possua.
+    Ex:
+    constructor(props) {
+      super(props);
 
-    this.state = {
-      theme: "dark",
-      posts: [],
-    };
-  }
-  Para alterar um state nos componentes de classes não temos uma função para cada
-  state que queremos trocar, dentro dos funcionais temos os setters que vêm do useState,
-  mas em classes não temos isso.
-  Nos componentes de classes temos um método dentro da instância chamado de,
-  `setState()` acessando assim `this.setState()`.
-  O `setState()` vai receber um objeto e vai fazer um merge do objeto recebido
-  com o objeto atual (ou anterior) do state em questão. O `setState` não
-  sobrescreve o state inteiro, ele faz o merge apenas das propriedades passadas,
-  as que não forem mencionadas continuarão com seus valores intactos.
-  Exemplo de atualizar um estado:
-  this.setState(prevState => {
-    return {
-      theme: prevState.theme === 'dark' ? 'light' : 'dark';
+      this.state = {
+        theme: "dark",
+        posts: [],
+      };
     }
-  });
+    Para alterar um state nos componentes de classes não temos uma função para cada
+    state que queremos trocar, dentro dos funcionais temos os setters que vêm do useState,
+    mas em classes não temos isso.
+    Nos componentes de classes temos um método dentro da instância chamado de,
+    `setState()` acessando assim `this.setState()`.
+    O `setState()` vai receber um objeto e vai fazer um merge do objeto recebido
+    com o objeto atual (ou anterior) do state em questão. O `setState` não
+    sobrescreve o state inteiro, ele faz o merge apenas das propriedades passadas,
+    as que não forem mencionadas continuarão com seus valores intactos.
+    Exemplo de atualizar um estado:
+    this.setState(prevState => {
+      return {
+        theme: prevState.theme === 'dark' ? 'light' : 'dark';
+      }
+    });
+
+  2° - Criando state como uma propriedade da classe
+  Para isto funcionar, temos que instalar um plugin do Babel para o Babel fazer
+  a transpilação e e o JS entender o que queremos fazer de settar o state como
+  uma propriedade da classe.
+  Plugin para instalar: @babel/plugin-proposal-class-properties
+
 */
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      theme: 'dark',
-      oiTudoBem: true
-    };
-
-    this.handleToggleTheme = this.handleToggleTheme.bind(this);
+  state = {
+    theme: 'dark',
+    oiTudoBem: true
   }
 
-  // se não fizermos nada, por padrão o `this` aponta para o objeto da própria função
-  // e não referencia a instância em si
-  handleToggleTheme() {
+  // Criando arrow function para que o `this` seja a instância (outer lexical env)
+  handleToggleTheme = () => {
     this.setState(prevState => ({
       theme: prevState.theme === 'dark' ? 'light' : 'dark'
     }));
