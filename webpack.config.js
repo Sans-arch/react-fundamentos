@@ -1,5 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin =  require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
@@ -8,9 +8,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle[hash].js',
-  }, 
+  },
   plugins: [
-    new HtmlWebpackPlugin ({
+    new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html'),
     }),
     new CleanWebpackPlugin(),
@@ -25,7 +25,7 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          'style-loader', 
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
@@ -36,9 +36,10 @@ module.exports = {
         ],
       },
     ],
-    
+
   },
   devServer: {
     port: 3000,
+    historyApiFallback: true,
   }
 };
