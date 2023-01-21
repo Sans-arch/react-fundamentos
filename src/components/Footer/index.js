@@ -5,7 +5,7 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 import { Container } from './styles';
 
 export default function Footer() {
-  const { currentTheme, handleToggleTheme } = useContext(ThemeContext);
+  const { theme, handleToggleTheme } = useContext(ThemeContext);
 
   return (
     <Container>
@@ -14,7 +14,7 @@ export default function Footer() {
         type="button"
         onClick={handleToggleTheme}
       >
-        {currentTheme === 'dark' ? '🌞' : '🌕'}
+        {theme === 'dark' ? '🌞' : '🌕'}
       </button>
     </Container>
   );

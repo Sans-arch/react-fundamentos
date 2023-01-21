@@ -54,7 +54,7 @@ export function CustomThemeProvider(props) {
 
   return (
     <ThemeContext.Provider value={{
-      currentTheme,
+      theme,
       handleToggleTheme,
     }}
     >
