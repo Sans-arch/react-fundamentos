@@ -12,16 +12,24 @@ export default class Post extends React.Component {
     // da nossa classe no constructor(), pois o constructor é executado 1 única vez e nunca mais, mesmo que as props ou state sejam alterados
     const { search } = this.props.location;
     this.queryParams = new URLSearchParams(search);
+    this.handleNavigate = this.handleNavigate.bind(this);
+  }
+
+  handleNavigate() {
+    this.props.history.push("/posts");
   }
 
   render() {
     // O React Router Dom lá no componente <Route component{}/> injeta umas
     // propriedades novas na nossa instância
-    console.log(this.props);
     const params = this.props.match.params;
-    console.log(this.queryParams.get('meuQueryParams'))
 
-    return <h1>Post page {params.id}</h1>
+    return (
+      <>
+        <button onClick={this.handleNavigate}>Voltar para a lista de posts</button>
+        <h1>Post page {params.id}</h1>
+      </>
+    );
   }
 }
 
