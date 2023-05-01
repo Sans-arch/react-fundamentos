@@ -17,6 +17,8 @@ Projeto prático no qual utilizo:
   - Configuração do dev-server e dos plugins, loaders.
 - Babel
   - Configurando os presets.
+  
+![Capa (1)](https://user-images.githubusercontent.com/69471715/235526412-3979dece-66a0-42bb-b8d4-6aa2a664a22f.png)  
 
 #### Dark mode
 
